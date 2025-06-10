@@ -35,6 +35,7 @@ export function DevToolsPanel({
     dispatch({ type: ACTION_DEV_TOOLS_PANEL_TOGGLE })
   }
 
+  // TODO: Replace "error-overlay" styles to dev tools style.
   return (
     <Overlay>
       <div className="error-overlay-dialog-container" ref={dialogRef}>
