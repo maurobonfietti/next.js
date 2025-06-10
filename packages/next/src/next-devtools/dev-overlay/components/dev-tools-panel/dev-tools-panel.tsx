@@ -35,14 +35,13 @@ export function DevToolsPanel({
     dispatch({ type: ACTION_DEV_TOOLS_PANEL_TOGGLE })
   }
 
-  // TODO: Replace "error-overlay" styles to dev tools style.
   return (
     <Overlay>
-      <div className="error-overlay-dialog-container" ref={dialogRef}>
+      <div className="dev-tools-panel-dialog-container" ref={dialogRef}>
         <Dialog
           aria-labelledby="nextjs__container_dev_tools_panel_label"
           aria-describedby="nextjs__container_dev_tools_panel_desc"
-          className="error-overlay-dialog-scroll"
+          className="dev-tools-panel-dialog-scroll"
           onClose={onClose}
         >
           <DialogContent>
@@ -58,6 +57,28 @@ export function DevToolsPanel({
 }
 
 export const DEV_TOOLS_PANEL_STYLES = `
+  .dev-tools-panel-dialog-container {
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-background-100);
+    background-clip: padding-box;
+    border: var(--next-dialog-border-width) solid var(--color-gray-400);
+    border-radius: 0 0 var(--next-dialog-radius) var(--next-dialog-radius);
+    box-shadow: var(--shadow-menu);
+    position: relative;
+    overflow: hidden;
+
+    /* TODO: Better styling. This is a prototype. */
+    min-width: 800px;
+    min-height: 500px;
+  }
+
+  .dev-tools-panel-dialog-scroll {
+    overflow-y: auto;
+    height: 100%;
+  }
+
   [data-nextjs-dialog-overlay] {
     padding: initial;
     top: 10vh;
