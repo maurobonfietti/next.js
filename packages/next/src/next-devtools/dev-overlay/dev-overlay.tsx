@@ -48,7 +48,9 @@ export function DevOverlay({
               )}
 
               {process.env.__NEXT_DEVTOOL_NEW_PANEL_UI &&
-                state.isDevToolsPanelOpen && <DevToolsPanel />}
+                state.isDevToolsPanelOpen && (
+                  <DevToolsPanel state={state} dispatch={dispatch} />
+                )}
 
               <ErrorOverlay
                 state={state}
