@@ -43,6 +43,11 @@ declare module '*.module.scss' {
   export default classes
 }
 
+declare module '*.css?raw' {
+  const content: string
+  export default content
+}
+
 // We implement the behavior of `import 'server-only'` and `import 'client-only'` on the compiler level
 // and thus don't require having them installed as dependencies.
 // By default it works fine with typescript, because (surprisingly) TSC *doesn't check side-effecting imports*.

@@ -15,6 +15,7 @@ packages/next/src/bundles/webpack/packages/*.runtime.js
 packages/next/src/bundles/webpack/packages/lazy-compilation-*.js
 packages/next/wasm/@next
 packages/next/errors.json
+packages/next/**/tailwind.output.css
 
 .github/actions/next-stats-action/.work
 .changeset/*.md
