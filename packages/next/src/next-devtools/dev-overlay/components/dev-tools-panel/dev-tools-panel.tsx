@@ -39,8 +39,8 @@ export function DevToolsPanel({
     <Overlay>
       <div className="error-overlay-dialog-container" ref={dialogRef}>
         <Dialog
-          aria-labelledby="nextjs__container_errors_label"
-          aria-describedby="nextjs__container_errors_desc"
+          aria-labelledby="nextjs__container_dev_tools_panel_label"
+          aria-describedby="nextjs__container_dev_tools_panel_desc"
           className="error-overlay-dialog-scroll"
           onClose={onClose}
         >
