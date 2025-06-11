@@ -647,7 +647,7 @@ impl<B: BackingStorage> TurboTasksBackendInner<B> {
             task_id: TaskId,
             ctx: &mut impl ExecuteContext<'_>,
         ) {
-            if !backend.should_track_dependencies() {
+            if !backend.should_track_dependencies() || task.is_immutable() {
                 return;
             }
             if let Some(reader) = reader {
@@ -1717,7 +1717,7 @@ impl<B: BackingStorage> TurboTasksBackendInner<B> {
                     }),
             );
         }
-        if self.should_track_dependencies() {
+        if !task.is_immutable() && self.should_track_dependencies() {
             old_edges.extend(iter_many!(task, OutdatedCellDependency { target } => OutdatedEdge::CellDependency(target)));
             old_edges.extend(iter_many!(task, OutdatedOutputDependency { target } => OutdatedEdge::OutputDependency(target)));
             old_edges.extend(
