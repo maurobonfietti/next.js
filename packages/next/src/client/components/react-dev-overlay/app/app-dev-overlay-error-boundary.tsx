@@ -1,5 +1,6 @@
 import { PureComponent } from 'react'
-import { RuntimeErrorHandler } from '../../errors/runtime-error-handler'
+import { dispatcher } from 'next/dist/compiled/next-devtools'
+import { RuntimeErrorHandler } from '../runtime-error-handler'
 import { ErrorBoundary } from '../../error-boundary'
 import DefaultGlobalError, {
   type GlobalErrorComponent,
@@ -8,7 +9,6 @@ import DefaultGlobalError, {
 type AppDevOverlayErrorBoundaryProps = {
   children: React.ReactNode
   globalError: [GlobalErrorComponent, React.ReactNode]
-  onError: () => void
 }
 
 type AppDevOverlayErrorBoundaryState = {
@@ -53,7 +53,7 @@ export class AppDevOverlayErrorBoundary extends PureComponent<
   }
 
   componentDidCatch() {
-    this.props.onError()
+    dispatcher.openErrorOverlay()
   }
 
   render() {
