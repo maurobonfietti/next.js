@@ -89,9 +89,7 @@
     "ncc-compiled": "taskr ncc",
     "storybook": "BROWSER=none storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test-storybook": "test-storybook",
-    "tw-build": "tailwindcss --input ./src/next-devtools/dev-overlay/tailwind.input.css --output ./src/next-devtools/dev-overlay/styles/tailwind.output.css",
-    "tw-watch": "pnpm tw-build --watch=always"
+    "test-storybook": "test-storybook"
   },
   "taskr": {
     "requires": [
@@ -183,7 +181,6 @@
     "@storybook/test-runner": "0.21.0",
     "@swc/core": "1.11.24",
     "@swc/types": "0.1.7",
-    "@tailwindcss/cli": "4.1.8",
     "@tailwindcss/postcss": "4.1.9",
     "@taskr/clear": "1.1.0",
     "@taskr/esnext": "1.1.0",
