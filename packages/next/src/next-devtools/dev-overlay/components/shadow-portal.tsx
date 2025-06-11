@@ -38,6 +38,7 @@ export function ShadowPortal({ children }: { children: React.ReactNode }) {
       shadowNode.current = portalNode.current.attachShadow({ mode: 'open' })
 
       // Injecting Tailwind to the Shadow DOM with Webpack style-loader.
+      // The target is passed to the next-devtools-inject-tailwind.js file which runs on the browser.
       // x-ref: https://webpack.js.org/loaders/style-loader/#lazystyletag
       tailwindCss.use({
         target: shadowNode.current,
